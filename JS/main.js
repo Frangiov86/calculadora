@@ -185,7 +185,8 @@ function formatearNumero(numero) {
     return parteDecimal ? `${parteEnteraFormateada},${parteDecimal}` : parteEnteraFormateada;
 }
 
-// Aplicar la clase correcta a los botones de operaciones y funciones
+// Aplicar la clase correcta a los botones de operaciones y funciones. Aqui se determina forEach para que cada vez se apriete estos botones, genere los eventos.
+
 function aplicarClaseOperacion() {
     const operaciones = ['%', '+', '-', '×', '÷', 'M+', 'M-', 'M'];
     botones.forEach(boton => {
