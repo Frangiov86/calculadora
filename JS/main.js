@@ -107,17 +107,17 @@ function manejarEntrada(valor) {
             }
             pantalla.textContent = formatearNumero(valorActual);
         }
-
+        // Boleano AC
     } else if (valor === 'AC') {
         valorActual = '';
         valorPrevio = '';
         operacionActual = '';
         pantalla.textContent = '0';
-
+        // Boleano Backspace
     } else if (valor === '⌫') {
         valorActual = valorActual.slice(0, -1);
         pantalla.textContent = formatearNumero(valorActual) || '0';
-
+        // Boleano igual
     } else if (valor === '=') {
         if (operacionActual && valorActual && valorPrevio) {
             valorActual = realizarOperacion().toString();
@@ -126,22 +126,22 @@ function manejarEntrada(valor) {
             valorPrevio = '';
             logOperacion(valorActual);
         }
-
+            // Boleano memoria positiva
     } else if (valor === 'M+') {
         memoria += parseFloat(valorActual.replace(/,/g, ''));
         logOperacion('Memoria Positiva: ' + memoria);
-
+        // Boleano memoria negativa
     } else if (valor === 'M-') {
         memoria -= parseFloat(valorActual.replace(/,/g, ''));
         logOperacion('Memoria Negativa: ' + memoria);
-
+        // Boleano guardar memoria
     } else if (valor === 'M') {
         pantalla.textContent = formatearNumero(memoria.toString());
-
+        // Boleano porcentaje
     } else if (valor === '%') {
         valorActual = (parseFloat(valorActual.replace(/,/g, '')) / 100).toString();
         pantalla.textContent = formatearNumero(valorActual);
-
+        // Se "apaga" la calculadora.
     } else if (valor === 'OFF') {
         // Se cierra la ventana del navegador
         window.close();
